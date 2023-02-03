@@ -1,0 +1,35 @@
+
+using System;
+using System.Collections.Generic;
+
+class GFG{
+
+static void isComment(string S)
+{
+	char[] line = S.ToCharArray();
+
+	if (line[0] == '/' && line[1] == '/' &&
+		line[2] != '/')
+	{
+		Console.WriteLine("It is a single-line comment");
+		return;
+	}
+
+	if (line[line.Length - 2] == '*' &&
+		line[line.Length - 1] == '/' && line[0] == '/' && line[1] == '*')
+	{
+		Console.WriteLine("It is a multi-line comment");
+		return;
+	}
+
+	Console.WriteLine("It is not a comment");
+}
+
+static public void Main()
+{
+
+	string line = "/*GeeksForGeeks GeeksForGeeks*/";
+
+	isComment(line);
+}
+}
